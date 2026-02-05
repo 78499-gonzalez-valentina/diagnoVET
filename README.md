@@ -1,4 +1,119 @@
 
+# diagnoVET — Plataforma de Diagnóstico Veterinario
+
+Prototipo de interfaz y mejoras de flujo para una plataforma de diagnóstico veterinario asistida por IA.
+
+---
+
+## 🌐 Demo en Vivo
+
+- **Aplicación desplegada:**  
+  https://vercel.com/valu322-gmailcoms-projects/v0-diagno-vet
+
+- **Repositorio GitHub:**  
+  (agregar enlace a tu repo público)
+
+---
+
+# 🎯 Contexto del Challenge
+
+El desafío solicitado fue:
+
+> “Analizar la plataforma diagnoVET y proponer mejoras concretas de UX/UI que reduzcan la fricción y mejoren la eficiencia del veterinario, construyendo un prototipo funcional de una mejora significativa.”
+
+Entregables requeridos:
+
+- Documento de análisis (“Why Document”)
+- Prototipo funcional
+- Demo online
+- Video explicativo (≤ 5 minutos)
+- Perfil profesional (CV / LinkedIn)
+
+Este documento cubre el análisis y las decisiones de diseño tomadas.
+
+---
+
+# 1️⃣ Documento “El Por Qué” — Análisis y Propuesta
+
+## Fuentes Analizadas
+
+Se realizó un análisis detallado de los siguientes videos de la plataforma actual:
+
+- https://www.youtube.com/watch?v=FKd49yNKtUc&list=PLAgYwCOd_QS3I_n459jShKiRoveVLptzR  
+- https://www.youtube.com/watch?v=7t1xlc5-0v0  
+- https://www.youtube.com/watch?v=PgTmi96Xr_E  
+
+---
+
+## 1.1 Auditoría UX — Principales Problemas Detectados
+
+### A) Flujo “Analizar Paciente”
+
+Este flujo es el núcleo del producto y donde se identificaron más oportunidades de mejora:
+
+**Problemas observados:**
+
+- Demasiados campos obligatorios
+- Formularios largos y lineales
+- Poca jerarquía visual
+- Acciones críticas poco claras
+- Carga de imágenes separada del contexto
+- Falta de guía paso a paso
+- Alto esfuerzo cognitivo para tareas repetitivas
+
+**Impacto real:**
+
+- Lentitud al cargar estudios
+- Mayor tasa de error humano
+- Fricción innecesaria
+- Posible abandono del flujo
+
+---
+
+### B) Carga de Imágenes
+
+- Proceso poco intuitivo
+- Sin feedback visual claro
+- Separación física entre formulario e imágenes
+- Falta de previsualización inmediata
+
+---
+
+### C) Ingreso de Datos Repetitivos
+
+- El sistema no recuerda información frecuente
+- Repetición manual de:
+  - Profesional referente
+  - Emails
+  - Especies
+  - Unidades
+
+---
+
+### D) Jerarquía de Acciones
+
+- Botones compitiendo visualmente
+- Acciones peligrosas demasiado visibles
+- Falta de un “camino feliz” claro
+
+---
+
+# 2️⃣ Estrategia de Mejora
+
+## Objetivo Principal
+
+Reducir el tiempo y el esfuerzo necesario para completar un estudio veterinario sin perder calidad de información.
+
+---
+
+## Cambios Propuestos
+
+### 1. Reorganización del Flujo en Wizard
+
+Transformar el formulario único en un flujo guiado:
+
+Paciente → Tutor → Imágenes → Confirmación
+
 **Beneficios:**
 
 - Menos sobrecarga visual
