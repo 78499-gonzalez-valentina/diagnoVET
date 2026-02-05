@@ -159,19 +159,19 @@ export function Dashboard() {
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <User className="h-4 w-4 mr-2" />
-                    Mi perfil
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Settings className="h-4 w-4 mr-2" />
-                    Configuración
-                  </DropdownMenuItem>
+                  <Link href="/perfil">
+                    <DropdownMenuItem>
+                      <Settings className="h-4 w-4 mr-2" />
+                      Configuración
+                    </DropdownMenuItem>
+                  </Link>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className="text-destructive">
-                    <LogOut className="h-4 w-4 mr-2" />
-                    Cerrar sesión
-                  </DropdownMenuItem>
+                  <Link href="/login">
+                    <DropdownMenuItem className="text-destructive">
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Cerrar sesión
+                    </DropdownMenuItem>
+                  </Link>
                 </DropdownMenuContent>
               </DropdownMenu>
 
@@ -281,7 +281,7 @@ export function Dashboard() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <Link href="/nueva-consulta">
                   <motion.div
                     whileHover={{ scale: 1.02, y: -2 }}
@@ -298,6 +298,25 @@ export function Dashboard() {
                       </p>
                     </div>
                     <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </motion.div>
+                </Link>
+
+                <Link href="/analizar-paciente">
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border border-border bg-gradient-to-br from-violet-500/5 to-violet-500/10 hover:border-violet-500/50 transition-all cursor-pointer group"
+                  >
+                    <div className="p-4 rounded-full bg-violet-500/10 group-hover:bg-violet-500/20 transition-colors">
+                      <Stethoscope className="h-8 w-8 text-violet-600" />
+                    </div>
+                    <div className="text-center">
+                      <p className="font-semibold text-foreground">Analizar Paciente</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Diagnóstico con IA
+                      </p>
+                    </div>
+                    <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
                   </motion.div>
                 </Link>
 
