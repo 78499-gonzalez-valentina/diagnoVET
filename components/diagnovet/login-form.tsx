@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { Loader2 } from "lucide-react"
+import { Loader2, Stethoscope, Eye, EyeOff } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -18,7 +18,7 @@ const MOCK_USERS = {
   // Usuario con perfil completo - va directo al dashboard
   "valentina@diagnovet.com": {
     password: "demo123",
-    name: "Dra. Valentina Ruiz",
+    name: "Dra. Valentina Gonzalez",
     hasCompletedOnboarding: true,
   },
   // Usuario nuevo - necesita completar onboarding
@@ -34,6 +34,7 @@ export function LoginForm() {
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -61,7 +62,7 @@ export function LoginForm() {
 
       // Redirigir según si completó onboarding o no
       if (user.hasCompletedOnboarding) {
-        router.push("/")
+        router.push("/dashboard")
       } else {
         router.push("/onboarding")
       }
@@ -94,55 +95,82 @@ export function LoginForm() {
   }
 
   return (
-    <div className="h-screen overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-background dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 flex items-center justify-center p-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full max-w-md"
-      >
-        <Card className="border-2 shadow-2xl">
-          <CardHeader className="space-y-3 text-center pb-6">
-            {/* Logo */}
-            <div className="flex justify-center">
-              <div className="relative w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="w-10 h-10 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Paw print with brain */}
-                  <path
-                    d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M8 9C8.82843 9 9.5 8.32843 9.5 7.5C9.5 6.67157 8.82843 6 8 6C7.17157 6 6.5 6.67157 6.5 7.5C6.5 8.32843 7.17157 9 8 9Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M16 9C16.8284 9 17.5 8.32843 17.5 7.5C17.5 6.67157 16.8284 6 16 6C15.1716 6 14.5 6.67157 14.5 7.5C14.5 8.32843 15.1716 9 16 9Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M7 13C7.82843 13 8.5 12.3284 8.5 11.5C8.5 10.6716 7.82843 10 7 10C6.17157 10 5.5 10.6716 5.5 11.5C5.5 12.3284 6.17157 13 7 13Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M17 13C17.8284 13 18.5 12.3284 18.5 11.5C18.5 10.6716 17.8284 10 17 10C16.1716 10 15.5 10.6716 15.5 11.5C15.5 12.3284 16.1716 13 17 13Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
+    <div className="h-screen flex overflow-hidden">
+      {/* Left Section - Hero */}
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary/90 to-primary relative overflow-hidden">
+        {/* Background Image Overlay */}
+        <div className="absolute inset-0 bg-black/20" />
+        
+        {/* Pattern/Texture Overlay */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }} />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col justify-between p-12 text-white w-full">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+              <Stethoscope className="w-7 h-7 text-white" />
             </div>
+            <span className="text-2xl font-bold">DiagnoVET</span>
+          </div>
+
+          {/* Main Content */}
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold leading-tight">
+                Cuidando la salud de quienes no pueden hablar por sí mismos
+              </h2>
+              <p className="text-lg text-white/90 leading-relaxed">
+                Diagnósticos veterinarios potenciados por inteligencia artificial para un cuidado más preciso y oportuno.
+              </p>
+            </div>
+            
+            {/* Illustration */}
+            <div className="flex justify-center">
+              <Image 
+                src="/vet-illustration.svg" 
+                alt="Veterinaria con perro" 
+                width={280} 
+                height={280}
+                className="opacity-90"
+              />
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="text-sm text-white/70">
+            © 2026 DiagnoVET x Valentina Gonzalez. Todos los derechos reservados.
+          </div>
+        </div>
+      </div>
+
+      {/* Right Section - Login Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 bg-background overflow-y-auto">
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full max-w-md"
+        >
+          <Card className="border-2 shadow-2xl">
+            <CardHeader className="space-y-3 text-center pb-6">
+              {/* Logo */}
+              <div className="flex justify-center">
+                <div className="relative w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
+                  <Stethoscope className="w-10 h-10 text-white" />
+                </div>
+              </div>
 
             <div>
               <h1 className="text-xl font-bold text-gray-900 dark:text-white">
                 Inicia sesión en
               </h1>
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                Diagnovet<span className="text-primary">AI</span>
+                Diagno<span className="text-primary">VET</span>
               </h2>
             </div>
           </CardHeader>
@@ -209,17 +237,32 @@ export function LoginForm() {
 
               <div className="space-y-1.5">
                 <Label htmlFor="password" className="text-sm">Contraseña</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="••••••••"
-                  value={formData.password}
-                  onChange={(e) =>
-                    setFormData({ ...formData, password: e.target.value })
-                  }
-                  required
-                  className="h-10"
-                />
+                <div className="relative">
+                  <Input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="••••••••"
+                    value={formData.password}
+                    onChange={(e) =>
+                      setFormData({ ...formData, password: e.target.value })
+                    }
+                    required
+                    className="h-10 pr-10"
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-0 top-0 h-10 w-10 hover:bg-transparent"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-4 w-4 text-muted-foreground" />
+                    ) : (
+                      <Eye className="h-4 w-4 text-muted-foreground" />
+                    )}
+                  </Button>
+                </div>
               </div>
 
               <Button
@@ -267,7 +310,8 @@ export function LoginForm() {
             </div>
           </CardContent>
         </Card>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   )
 }

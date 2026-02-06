@@ -256,7 +256,7 @@ Riñón Izquierdo: Tamaño 46.51 mm por 27.53 mm, conservado. Con contornos regu
     
     // Redirect to dashboard after a short delay
     setTimeout(() => {
-      router.push("/")
+      router.push("/dashboard")
     }, 2000)
   }
 
@@ -328,7 +328,7 @@ Riñón Izquierdo: Tamaño 46.51 mm por 27.53 mm, conservado. Con contornos regu
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/dashboard")}
                 className="text-muted-foreground"
               >
                 <ArrowLeft className="h-5 w-5" />
@@ -1085,7 +1085,7 @@ Riñón Izquierdo: Tamaño 46.51 mm por 27.53 mm, conservado. Con contornos regu
             <Button
               variant="ghost"
               className="text-muted-foreground text-sm"
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/dashboard")}
             >
               Cancelar
             </Button>

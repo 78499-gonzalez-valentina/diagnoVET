@@ -168,7 +168,7 @@ export function OnboardingWizard() {
         // Simulate saving
         await new Promise((resolve) => setTimeout(resolve, 1000))
 
-        router.push("/")
+        router.push("/dashboard?tour=true")
       }
     }
   }

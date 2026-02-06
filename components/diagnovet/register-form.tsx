@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { Loader2, ArrowLeft } from "lucide-react"
+import { Loader2, ArrowLeft, Stethoscope, Eye, EyeOff } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -17,6 +17,8 @@ export function RegisterForm() {
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -124,33 +126,7 @@ export function RegisterForm() {
             {/* Logo */}
             <div className="flex justify-center">
               <div className="relative w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="w-12 h-12 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M8 9C8.82843 9 9.5 8.32843 9.5 7.5C9.5 6.67157 8.82843 6 8 6C7.17157 6 6.5 6.67157 6.5 7.5C6.5 8.32843 7.17157 9 8 9Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M16 9C16.8284 9 17.5 8.32843 17.5 7.5C17.5 6.67157 16.8284 6 16 6C15.1716 6 14.5 6.67157 14.5 7.5C14.5 8.32843 15.1716 9 16 9Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M7 13C7.82843 13 8.5 12.3284 8.5 11.5C8.5 10.6716 7.82843 10 7 10C6.17157 10 5.5 10.6716 5.5 11.5C5.5 12.3284 6.17157 13 7 13Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M17 13C17.8284 13 18.5 12.3284 18.5 11.5C18.5 10.6716 17.8284 10 17 10C16.1716 10 15.5 10.6716 15.5 11.5C15.5 12.3284 16.1716 13 17 13Z"
-                    fill="currentColor"
-                  />
-                </svg>
+                <Stethoscope className="w-12 h-12 text-white" />
               </div>
             </div>
 
@@ -159,7 +135,7 @@ export function RegisterForm() {
                 Únete a
               </h1>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Diagnovet<span className="text-cyan-600">AI</span>
+                Diagno<span className="text-primary">VET</span>
               </h2>
             </div>
           </CardHeader>
@@ -245,16 +221,31 @@ export function RegisterForm() {
 
               <div className="space-y-2">
                 <Label htmlFor="password">Contraseña</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Mínimo 6 caracteres"
-                  value={formData.password}
-                  onChange={(e) =>
-                    setFormData({ ...formData, password: e.target.value })
-                  }
-                  className={`h-12 ${errors.password ? "border-red-500" : ""}`}
-                />
+                <div className="relative">
+                  <Input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Mínimo 6 caracteres"
+                    value={formData.password}
+                    onChange={(e) =>
+                      setFormData({ ...formData, password: e.target.value })
+                    }
+                    className={`h-12 pr-10 ${errors.password ? "border-red-500" : ""}`}
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-0 top-0 h-12 w-10 hover:bg-transparent"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-4 w-4 text-muted-foreground" />
+                    ) : (
+                      <Eye className="h-4 w-4 text-muted-foreground" />
+                    )}
+                  </Button>
+                </div>
                 {errors.password && (
                   <p className="text-xs text-red-500">{errors.password}</p>
                 )}
@@ -262,18 +253,33 @@ export function RegisterForm() {
 
               <div className="space-y-2">
                 <Label htmlFor="confirmPassword">Confirmar contraseña</Label>
-                <Input
-                  id="confirmPassword"
-                  type="password"
-                  placeholder="Repite tu contraseña"
-                  value={formData.confirmPassword}
-                  onChange={(e) =>
-                    setFormData({ ...formData, confirmPassword: e.target.value })
-                  }
-                  className={`h-12 ${
-                    errors.confirmPassword ? "border-red-500" : ""
-                  }`}
-                />
+                <div className="relative">
+                  <Input
+                    id="confirmPassword"
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="Repite tu contraseña"
+                    value={formData.confirmPassword}
+                    onChange={(e) =>
+                      setFormData({ ...formData, confirmPassword: e.target.value })
+                    }
+                    className={`h-12 pr-10 ${
+                      errors.confirmPassword ? "border-red-500" : ""
+                    }`}
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-0 top-0 h-12 w-10 hover:bg-transparent"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  >
+                    {showConfirmPassword ? (
+                      <EyeOff className="h-4 w-4 text-muted-foreground" />
+                    ) : (
+                      <Eye className="h-4 w-4 text-muted-foreground" />
+                    )}
+                  </Button>
+                </div>
                 {errors.confirmPassword && (
                   <p className="text-xs text-red-500">{errors.confirmPassword}</p>
                 )}

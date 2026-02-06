@@ -205,7 +205,7 @@ export function ConsultWizard() {
     // Simulate save
     await new Promise((resolve) => setTimeout(resolve, 2000))
     setIsSaving(false)
-    router.push("/")
+    router.push("/dashboard")
   }
 
   const toggleDiagnosis = (diagnosis: string) => {
@@ -714,7 +714,7 @@ export function ConsultWizard() {
           <div className="flex items-center justify-between mb-4">
             <Button
               variant="ghost"
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/dashboard")}
               className="text-muted-foreground"
             >
               <ChevronLeft className="h-4 w-4 mr-1" />

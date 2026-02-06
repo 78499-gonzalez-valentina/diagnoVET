@@ -1,5 +1,5 @@
-import { Dashboard } from "@/components/diagnovet/dashboard"
+import { LoginForm } from "@/components/diagnovet/login-form"
 
 export default function Home() {
-  return <Dashboard />
+  return <LoginForm />
 }

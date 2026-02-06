@@ -1,0 +1,185 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes tail-wag {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(10deg); }
+      }
+      .tail { transform-origin: 80% 50%; animation: tail-wag 1.5s ease-in-out infinite; }
+    </style>
+  </defs>
+  
+  <!-- Background elements -->
+  <rect x="40" y="80" width="150" height="120" rx="8" fill="#E5E7EB" opacity="0.6"/>
+  <rect x="60" y="100" width="110" height="4" rx="2" fill="#D1D5DB"/>
+  <rect x="60" y="115" width="110" height="4" rx="2" fill="#D1D5DB"/>
+  <rect x="60" y="130" width="110" height="4" rx="2" fill="#D1D5DB"/>
+  <rect x="60" y="145" width="110" height="4" rx="2" fill="#D1D5DB"/>
+  
+  <!-- Dog silhouettes on board -->
+  <path d="M50 95 L55 90 L60 92 L65 90 L68 95 L65 100 L60 98 L55 100 Z" fill="#9CA3AF"/>
+  <path d="M50 110 L55 105 L60 107 L65 105 L68 110 L65 115 L60 113 L55 115 Z" fill="#9CA3AF"/>
+  <path d="M50 125 L55 120 L60 122 L65 120 L68 125 L65 130 L60 128 L55 130 Z" fill="#9CA3AF"/>
+  
+  <!-- Medical supplies shelf -->
+  <rect x="270" y="60" width="110" height="80" rx="4" fill="#E5E7EB" opacity="0.5"/>
+  <rect x="280" y="70" width="30" height="25" rx="2" fill="#D1D5DB"/>
+  <path d="M295 75 L295 90 M287.5 82.5 L302.5 82.5" stroke="white" stroke-width="2"/>
+  <rect x="320" y="70" width="15" height="30" rx="2" fill="#D1D5DB"/>
+  <rect x="345" y="75" width="25" height="20" rx="2" fill="#D1D5DB"/>
+  
+  <!-- Plant -->
+  <ellipse cx="35" cy="340" rx="20" ry="8" fill="#D1D5DB"/>
+  <path d="M25 320 Q20 300 30 285" stroke="#9CA3AF" stroke-width="2" fill="none"/>
+  <path d="M35 310 Q30 290 40 275" stroke="#9CA3AF" stroke-width="2" fill="none"/>
+  <path d="M45 320 Q50 300 40 285" stroke="#9CA3AF" stroke-width="2" fill="none"/>
+  
+  <!-- Dog -->
+  <g class="tail">
+    <path d="M145 360 Q135 340 130 330" stroke="#8B6F5E" stroke-width="12" stroke-linecap="round" fill="none"/>
+  </g>
+  
+  <!-- Dog body -->
+  <ellipse cx="165" cy="340" rx="45" ry="55" fill="#8B6F5E"/>
+  
+  <!-- Dog head -->
+  <ellipse cx="180" cy="290" rx="32" ry="38" fill="#8B6F5E"/>
+  
+  <!-- Dog ear -->
+  <ellipse cx="165" cy="270" rx="15" ry="35" fill="#7A5F4E" transform="rotate(-20 165 270)"/>
+  
+  <!-- Dog snout -->
+  <ellipse cx="190" cy="300" rx="13" ry="10" fill="#6B5446"/>
+  <ellipse cx="193" cy="303" rx="8" ry="7" fill="#9C7A68"/>
+  
+  <!-- Dog nose - más detallada -->
+  <ellipse cx="196" cy="301" rx="5" ry="4" fill="#2D3748"/>
+  <ellipse cx="194" cy="300" rx="1.5" ry="1" fill="white" opacity="0.6"/>
+  
+  <!-- Dog nostrils -->
+  <ellipse cx="194.5" cy="302" rx="1" ry="1.5" fill="#1a1a1a"/>
+  <ellipse cx="197.5" cy="302" rx="1" ry="1.5" fill="#1a1a1a"/>
+  
+  <!-- Dog eye - más expresivo -->
+  <ellipse cx="175" cy="285" rx="4" ry="4.5" fill="white"/>
+  <circle cx="176" cy="286" r="3" fill="#2D3748"/>
+  <circle cx="176.5" cy="285" r="1.2" fill="white" opacity="0.9"/>
+  
+  <!-- Dog eyebrow -->
+  <path d="M170 280 Q173 278 177 279" stroke="#6B5446" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  
+  <!-- Dog mouth - sonrisa sutil -->
+  <path d="M196 305 Q198 307 200 305" stroke="#2D3748" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  
+  <!-- Dog paws -->
+  <ellipse cx="150" cy="380" rx="10" ry="12" fill="#6B5446"/>
+  <ellipse cx="180" cy="385" rx="10" ry="12" fill="#6B5446"/>
+  
+  <!-- Veterinarian -->
+  <!-- Body -->
+  <path d="M240 380 L240 280 L260 260 L300 260 L320 280 L320 380 Z" fill="white"/>
+  
+  <!-- Lab coat details -->
+  <line x1="280" y1="260" x2="280" y2="380" stroke="#E5E7EB" stroke-width="2"/>
+  <rect x="305" y="340" width="12" height="35" rx="2" fill="#E5E7EB"/>
+  
+  <!-- Paw print on pocket -->
+  <circle cx="310" cy="358" r="2" fill="#8B6F5E"/>
+  <circle cx="307" cy="363" r="1.5" fill="#8B6F5E"/>
+  <circle cx="313" cy="363" r="1.5" fill="#8B6F5E"/>
+  <circle cx="310" cy="367" r="1.5" fill="#8B6F5E"/>
+  
+  <!-- Neck/Shirt -->
+  <path d="M265 260 L265 270 L275 270 L275 260" fill="#4A9B8E"/>
+  <path d="M285 260 L285 270 L295 270 L295 260" fill="#4A9B8E"/>
+  
+  <!-- Head -->
+  <ellipse cx="280" cy="220" rx="28" ry="32" fill="#8B5A3C"/>
+  
+  <!-- Neck shadow -->
+  <ellipse cx="280" cy="248" rx="14" ry="6" fill="#000000" opacity="0.1"/>
+  
+  <!-- Hair - MEJORADO: más prolijo y recogido -->
+  <!-- Base del cabello -->
+  <ellipse cx="280" cy="200" rx="29" ry="20" fill="#1F2937"/>
+  
+  <!-- Parte frontal del cabello -->
+  <path d="M252 210 Q252 195 265 192 Q272 190 280 190 Q288 190 295 192 Q308 195 308 210" fill="#1F2937"/>
+  
+  <!-- Moño/coleta atrás -->
+  <ellipse cx="308" cy="215" rx="10" ry="14" fill="#1F2937" transform="rotate(25 308 215)"/>
+  <circle cx="310" cy="218" r="6" fill="#E5E7EB" opacity="0.3"/>
+  
+  <!-- Flequillo/cabello frontal más prolijo -->
+  <path d="M262 205 Q270 200 280 200 Q290 200 298 205" fill="#1F2937"/>
+  
+  <!-- Hair highlights sutiles -->
+  <path d="M270 195 Q275 193 280 194 Q285 193 290 195" stroke="#374151" stroke-width="1.5" stroke-linecap="round" opacity="0.4" fill="none"/>
+  
+  <!-- Ear (with earbud) -->
+  <ellipse cx="305" cy="220" rx="5" ry="7" fill="#7A4A2C"/>
+  <ellipse cx="305" cy="218" rx="2.5" ry="3" fill="#9C6B4F"/>
+  <circle cx="307" cy="220" r="3.5" fill="white"/>
+  <circle cx="307" cy="220" r="2" fill="#E5E7EB"/>
+  <path d="M307 220 L312 215" stroke="white" stroke-width="1.5"/>
+  
+  <!-- Face features - MEJORADAS -->
+  
+  <!-- Eyebrows - más expresivas -->
+  <path d="M268 214 Q272 211 276 212" stroke="#5A3A24" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M284 212 Q288 211 292 214" stroke="#5A3A24" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- Eyes - más detallados y expresivos -->
+  <!-- Left eye -->
+  <ellipse cx="271" cy="219" rx="4" ry="4.5" fill="white"/>
+  <circle cx="272" cy="220" r="3" fill="#2D3748"/>
+  <circle cx="272.5" cy="219" r="1.3" fill="white" opacity="0.9"/>
+  <circle cx="273" cy="220.5" r="0.6" fill="white" opacity="0.6"/>
+  
+  <!-- Right eye -->
+  <ellipse cx="289" cy="219" rx="4" ry="4.5" fill="white"/>
+  <circle cx="288" cy="220" r="3" fill="#2D3748"/>
+  <circle cx="288.5" cy="219" r="1.3" fill="white" opacity="0.9"/>
+  <circle cx="289" cy="220.5" r="0.6" fill="white" opacity="0.6"/>
+  
+  <!-- Eyelids - agregar profundidad -->
+  <path d="M267 218 Q271 217 275 218" stroke="#5A3A24" stroke-width="0.8" stroke-linecap="round" opacity="0.3"/>
+  <path d="M285 218 Q289 217 293 218" stroke="#5A3A24" stroke-width="0.8" stroke-linecap="round" opacity="0.3"/>
+  
+  <!-- Nose - más definida -->
+  <ellipse cx="280" cy="228" rx="2.5" ry="3" fill="#7A4A2C"/>
+  <ellipse cx="279" cy="227.5" rx="0.8" ry="0.6" fill="white" opacity="0.4"/>
+  <path d="M278 229 L280 232 L282 229" stroke="#5A3A24" stroke-width="1" stroke-linecap="round" fill="none"/>
+  
+  <!-- Smile - más natural y cálida -->
+  <path d="M275 233 Q280 237 285 233" stroke="#5A3A24" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <path d="M276 233 Q280 235 284 233" stroke="#7A4A2C" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.3"/>
+  
+  <!-- Cheek blush -->
+  <ellipse cx="266" cy="225" rx="4" ry="3" fill="#D97757" opacity="0.25"/>
+  <ellipse cx="294" cy="225" rx="4" ry="3" fill="#D97757" opacity="0.25"/>
+  
+  <!-- Stethoscope -->
+  <path d="M270 270 Q265 290 260 310 Q258 325 265 330" stroke="#2D3748" stroke-width="3" fill="none"/>
+  <path d="M290 270 Q295 290 300 310 Q302 325 295 330" stroke="#2D3748" stroke-width="3" fill="none"/>
+  <ellipse cx="280" cy="332" rx="15" ry="12" fill="#2D3748"/>
+  <circle cx="280" cy="332" r="8" fill="#4A9B8E"/>
+  <circle cx="277" cy="330" r="2" fill="white" opacity="0.3"/>
+  
+  <!-- Arms -->
+  <path d="M245 280 Q235 300 230 320 L210 335" stroke="#8B5A3C" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <path d="M315 280 Q325 300 330 320 L340 330" stroke="#8B5A3C" stroke-width="14" stroke-linecap="round" fill="none"/>
+  
+  <!-- Hands -->
+  <ellipse cx="207" cy="340" rx="10" ry="8" fill="#8B5A3C" transform="rotate(-30 207 340)"/>
+  <ellipse cx="342" cy="333" rx="10" ry="8" fill="#8B5A3C" transform="rotate(20 342 333)"/>
+  
+  <!-- Hand details -->
+  <path d="M205 336 L205 340" stroke="#7A4A2C" stroke-width="1" stroke-linecap="round"/>
+  <path d="M208 337 L208 341" stroke="#7A4A2C" stroke-width="1" stroke-linecap="round"/>
+  
+  <!-- Stethoscope in use -->
+  <path d="M205 338 Q195 330 190 315" stroke="#2D3748" stroke-width="2" fill="none"/>
+  <ellipse cx="185" cy="310" rx="6" ry="8" fill="#2D3748"/>
+  <circle cx="185" cy="310" r="4" fill="#1a1a1a"/>
+</svg>

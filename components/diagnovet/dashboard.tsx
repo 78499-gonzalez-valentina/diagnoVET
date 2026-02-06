@@ -4,7 +4,6 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import {
-  Bell,
   Calendar,
   ChevronRight,
   FileText,
@@ -29,6 +28,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Timeline, type TimelineItem } from "./timeline"
+import { OnboardingTour } from "./onboarding-tour"
+import { MainNav } from "./main-nav"
+import { NewPatientModal } from "./new-patient-modal"
 import { cn } from "@/lib/utils"
 
 const recentActivity: TimelineItem[] = [
@@ -80,140 +82,10 @@ const quickStats = [
 ]
 
 export function Dashboard() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [notifications] = useState(3)
+  const [isNewPatientModalOpen, setIsNewPatientModalOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary">
-                <Stethoscope className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <div className="hidden sm:block">
-                <h1 className="font-bold text-xl text-foreground">
-                  diagno<span className="text-primary">VET</span>
-                </h1>
-                <p className="text-xs text-muted-foreground -mt-0.5">
-                  Plataforma Veterinaria
-                </p>
-              </div>
-            </div>
-
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
-              <Button variant="ghost" size="sm" className="text-foreground">
-                Dashboard
-              </Button>
-              <Button variant="ghost" size="sm" className="text-muted-foreground">
-                Pacientes
-              </Button>
-              <Button variant="ghost" size="sm" className="text-muted-foreground">
-                Agenda
-              </Button>
-              <Button variant="ghost" size="sm" className="text-muted-foreground">
-                Reportes
-              </Button>
-            </nav>
-
-            {/* Right Section */}
-            <div className="flex items-center gap-2">
-              {/* Search */}
-              <Button variant="ghost" size="icon" className="hidden md:flex text-muted-foreground">
-                <Search className="h-5 w-5" />
-              </Button>
-
-              {/* Notifications */}
-              <Button variant="ghost" size="icon" className="relative text-muted-foreground">
-                <Bell className="h-5 w-5" />
-                {notifications > 0 && (
-                  <span className="absolute top-1 right-1 flex items-center justify-center w-4 h-4 rounded-full bg-destructive text-destructive-foreground text-[10px] font-bold">
-                    {notifications}
-                  </span>
-                )}
-              </Button>
-
-              {/* User Menu */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <Avatar className="h-8 w-8">
-                      <AvatarImage src="/placeholder-user.jpg" alt="Usuario" />
-                      <AvatarFallback className="bg-primary/10 text-primary">
-                        DV
-                      </AvatarFallback>
-                    </Avatar>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuLabel>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Dra. Valentina Ruiz</span>
-                      <span className="text-xs text-muted-foreground">
-                        valentina@diagnovet.com
-                      </span>
-                    </div>
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <Link href="/perfil">
-                    <DropdownMenuItem>
-                      <Settings className="h-4 w-4 mr-2" />
-                      Configuración
-                    </DropdownMenuItem>
-                  </Link>
-                  <DropdownMenuSeparator />
-                  <Link href="/login">
-                    <DropdownMenuItem className="text-destructive">
-                      <LogOut className="h-4 w-4 mr-2" />
-                      Cerrar sesión
-                    </DropdownMenuItem>
-                  </Link>
-                </DropdownMenuContent>
-              </DropdownMenu>
-
-              {/* Mobile Menu Toggle */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="md:hidden text-muted-foreground"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border bg-card"
-          >
-            <div className="px-4 py-3 space-y-1">
-              <Button variant="ghost" className="w-full justify-start text-foreground">
-                Dashboard
-              </Button>
-              <Button variant="ghost" className="w-full justify-start text-muted-foreground">
-                Pacientes
-              </Button>
-              <Button variant="ghost" className="w-full justify-start text-muted-foreground">
-                Agenda
-              </Button>
-              <Button variant="ghost" className="w-full justify-start text-muted-foreground">
-                Reportes
-              </Button>
-            </div>
-          </motion.nav>
-        )}
-      </header>
-
+    <MainNav>
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 py-8">
         {/* Welcome Section */}
@@ -287,6 +159,7 @@ export function Dashboard() {
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border border-border bg-gradient-to-br from-primary/5 to-primary/10 hover:border-primary/50 transition-all cursor-pointer group"
+                    data-tour="nueva-consulta"
                   >
                     <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
                       <FileText className="h-8 w-8 text-primary" />
@@ -306,6 +179,7 @@ export function Dashboard() {
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border border-border bg-gradient-to-br from-violet-500/5 to-violet-500/10 hover:border-violet-500/50 transition-all cursor-pointer group"
+                    data-tour="analizar-paciente"
                   >
                     <div className="p-4 rounded-full bg-violet-500/10 group-hover:bg-violet-500/20 transition-colors">
                       <Stethoscope className="h-8 w-8 text-violet-600" />
@@ -323,6 +197,7 @@ export function Dashboard() {
                 <motion.div
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => setIsNewPatientModalOpen(true)}
                   className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border border-border bg-card hover:border-accent/50 transition-all cursor-pointer group"
                 >
                   <div className="p-4 rounded-full bg-accent/10 group-hover:bg-accent/20 transition-colors">
@@ -337,22 +212,24 @@ export function Dashboard() {
                   <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-accent-foreground group-hover:translate-x-1 transition-all" />
                 </motion.div>
 
-                <motion.div
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border border-border bg-card hover:border-chart-3/50 transition-all cursor-pointer group"
-                >
-                  <div className="p-4 rounded-full bg-chart-3/10 group-hover:bg-chart-3/20 transition-colors">
-                    <Calendar className="h-8 w-8 text-chart-3" />
-                  </div>
-                  <div className="text-center">
-                    <p className="font-semibold text-foreground">Agenda</p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Ver citas del día
-                    </p>
-                  </div>
-                  <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-chart-3 group-hover:translate-x-1 transition-all" />
-                </motion.div>
+                <Link href="/agenda">
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border border-border bg-card hover:border-chart-3/50 transition-all cursor-pointer group"
+                  >
+                    <div className="p-4 rounded-full bg-chart-3/10 group-hover:bg-chart-3/20 transition-colors">
+                      <Calendar className="h-8 w-8 text-chart-3" />
+                    </div>
+                    <div className="text-center">
+                      <p className="font-semibold text-foreground">Agenda</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Ver citas del día
+                      </p>
+                    </div>
+                    <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-chart-3 group-hover:translate-x-1 transition-all" />
+                  </motion.div>
+                </Link>
               </div>
             </div>
 
@@ -419,7 +296,7 @@ export function Dashboard() {
       <footer className="border-t border-border mt-12">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>© 2026 diagnoVET. Todos los derechos reservados.</p>
+            <p>© 2026 diagnoVET x Valentina Gonzalez. Todos los derechos reservados.</p>
             <div className="flex items-center gap-4">
               <a href="#" className="hover:text-foreground transition-colors">
                 Soporte
@@ -434,6 +311,15 @@ export function Dashboard() {
           </div>
         </div>
       </footer>
-    </div>
+
+      {/* Onboarding Tour */}
+      <OnboardingTour />
+
+      {/* Modal de Nuevo Paciente */}
+      <NewPatientModal 
+        open={isNewPatientModalOpen} 
+        onOpenChange={setIsNewPatientModalOpen}
+      />
+    </MainNav>
   )
 }

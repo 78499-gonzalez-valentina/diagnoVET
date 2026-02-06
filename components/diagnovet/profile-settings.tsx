@@ -332,7 +332,7 @@ export function ProfileSettings() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/dashboard")}
                 className="text-muted-foreground"
               >
                 <ArrowLeft className="h-5 w-5" />
