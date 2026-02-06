@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowRight, CheckCircle2, Info } from "lucide-react"
+import { ArrowRight, CheckCircle2, Info, Stethoscope } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -101,8 +101,6 @@ export function OnboardingWizard() {
 
     if (!onboardingData.address.trim()) {
       newErrors.address = "La dirección es requerida"
-    } else if (onboardingData.address.length < 10) {
-      newErrors.address = "Ingresa una dirección válida"
     }
 
     if (!onboardingData.phoneNumber.trim()) {
@@ -206,7 +204,7 @@ export function OnboardingWizard() {
                   <div className="relative bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-2xl">
                     <div className="text-8xl text-center">🐕</div>
                     <p className="text-center mt-4 text-sm text-muted-foreground">
-                      Samoyedo feliz esperando atención veterinaria
+                      Mascotas esperando atención veterinaria
                     </p>
                   </div>
                 </div>
@@ -218,33 +216,7 @@ export function OnboardingWizard() {
                   {/* Logo */}
                   <div className="flex justify-center mb-4">
                     <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center shadow-lg">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        className="w-10 h-10 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M8 9C8.82843 9 9.5 8.32843 9.5 7.5C9.5 6.67157 8.82843 6 8 6C7.17157 6 6.5 6.67157 6.5 7.5C6.5 8.32843 7.17157 9 8 9Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M16 9C16.8284 9 17.5 8.32843 17.5 7.5C17.5 6.67157 16.8284 6 16 6C15.1716 6 14.5 6.67157 14.5 7.5C14.5 8.32843 15.1716 9 16 9Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M7 13C7.82843 13 8.5 12.3284 8.5 11.5C8.5 10.6716 7.82843 10 7 10C6.17157 10 5.5 10.6716 5.5 11.5C5.5 12.3284 6.17157 13 7 13Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M17 13C17.8284 13 18.5 12.3284 18.5 11.5C18.5 10.6716 17.8284 10 17 10C16.1716 10 15.5 10.6716 15.5 11.5C15.5 12.3284 16.1716 13 17 13Z"
-                          fill="currentColor"
-                        />
-                      </svg>
+                      <Stethoscope className="w-10 h-10 text-white" />
                     </div>
                   </div>
 
@@ -383,7 +355,7 @@ export function OnboardingWizard() {
                   <div className="relative bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-2xl">
                     <div className="text-8xl text-center">🐾</div>
                     <p className="text-center mt-4 text-sm text-muted-foreground">
-                      Pastor Australiano listo para su chequeo
+                      Mascotas listas para su chequeo
                     </p>
                   </div>
                 </div>
@@ -395,33 +367,7 @@ export function OnboardingWizard() {
                   {/* Logo */}
                   <div className="flex justify-center mb-4">
                     <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center shadow-lg">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        className="w-10 h-10 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M8 9C8.82843 9 9.5 8.32843 9.5 7.5C9.5 6.67157 8.82843 6 8 6C7.17157 6 6.5 6.67157 6.5 7.5C6.5 8.32843 7.17157 9 8 9Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M16 9C16.8284 9 17.5 8.32843 17.5 7.5C17.5 6.67157 16.8284 6 16 6C15.1716 6 14.5 6.67157 14.5 7.5C14.5 8.32843 15.1716 9 16 9Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M7 13C7.82843 13 8.5 12.3284 8.5 11.5C8.5 10.6716 7.82843 10 7 10C6.17157 10 5.5 10.6716 5.5 11.5C5.5 12.3284 6.17157 13 7 13Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M17 13C17.8284 13 18.5 12.3284 18.5 11.5C18.5 10.6716 17.8284 10 17 10C16.1716 10 15.5 10.6716 15.5 11.5C15.5 12.3284 16.1716 13 17 13Z"
-                          fill="currentColor"
-                        />
-                      </svg>
+                      <Stethoscope className="w-10 h-10 text-white" />
                     </div>
                   </div>
 

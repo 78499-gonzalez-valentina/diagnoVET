@@ -235,6 +235,37 @@ Panel analítico para apoyar decisiones:
 
 ---
 
+## 🔒 Consideraciones de Seguridad y Validación
+
+### Validación de Identidad Profesional
+
+**Propuesta de implementación futura:**
+
+Para garantizar la integridad y seguridad de la plataforma, se propone implementar un sistema de **validación previa de identidad** antes de otorgar acceso completo al sistema:
+
+#### 📋 Validación de Veterinarios
+- **Verificación de matrícula profesional** ante organismos reguladores competentes
+- **Validación de título habilitante** (Médico Veterinario certificado)
+- **Verificación de identidad** mediante documentación oficial
+- **Confirmación de estado activo** de la matrícula (no suspendida o revocada)
+
+#### 🏥 Validación de Establecimientos
+- **Verificación de habilitación municipal/estatal** de la veterinaria
+- **Confirmación de domicilio legal** del establecimiento
+- **Validación de permisos sanitarios** vigentes
+
+#### 🚫 Restricción de Acceso
+- Hasta **no obtener la validación completa**, los usuarios no podrían acceder a las funcionalidades de la plataforma
+
+#### ✅ Beneficios del Sistema de Validación
+- **Protección legal** - Cumplimiento con regulaciones sanitarias
+- **Confianza del usuario** - Garantía de profesionales certificados
+- **Trazabilidad** - Todos los diagnósticos respaldados por profesionales validados
+- **Prevención de fraude** - Evita uso indebido de la plataforma
+- **Responsabilidad profesional** - Cada acción vinculada a un profesional verificado
+
+> **Nota:** Este sistema de validación es una propuesta de mejora para la versión de producción. El prototipo actual utiliza autenticación simulada con fines demostrativos.
+
 # Cómo Ejecutar el Proyecto
 
 ### Instalación
@@ -242,5 +273,7 @@ Panel analítico para apoyar decisiones:
 ```bash
 npm install
 
-ejecución
+### Ejecución
+
+```bash
 npm run dev

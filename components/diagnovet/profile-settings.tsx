@@ -215,8 +215,6 @@ export function ProfileSettings() {
 
     if (!profile.clinicAddress.trim()) {
       newErrors.clinicAddress = "La dirección es requerida"
-    } else if (profile.clinicAddress.length < 10) {
-      newErrors.clinicAddress = "Ingresa una dirección válida"
     }
 
     if (profile.clinicPhone.trim()) {
